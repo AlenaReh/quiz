@@ -9,7 +9,7 @@
   <body>
     <header>
         <div class="header">
-            <a href="#">View highscores</a>
+            <a href="scores.html">View highscores</a>
                 <div id="timer">Time: 60 seconds remaining</div>
             </div>
         </div>
@@ -28,6 +28,7 @@
               <button class ="button" id="option-3" >D</button><br>  
             </div>
           </div>
+        <p>Push the START button to start your Quiz</p> <br>
         <p>Good Luck =)</p>
         <div class="controls"> 
         <button id="start-button" class="start-button button">Start</button>
@@ -37,7 +38,7 @@
   <!--Quiz page-->
 
     <!--Type in your Highscore-->
-    <form>
+    <form id="submitScore" class="hide">
       <label for="name">What is your name?</label><br>
       <input type="text" id="name" name="name"><br>
       <button type="submit"><a href="" id="finalScore">Your Score</a></button>

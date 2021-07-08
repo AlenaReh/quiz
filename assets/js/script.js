@@ -93,22 +93,66 @@ function startQuiz () {
 
 //function for setting the next question
 function setNextQuestion () {
+    console.log("currentQuestionIndex", currentQuestionIndex);
     console.log(quizList[currentQuestionIndex]);
     //Display Question 
-    questionEl.textContent =quizList[currentQuestionIndex].question;
+    questionEl.textContent = quizList[currentQuestionIndex].question;
     //Set Answer 1 text and value for the button 
-    answerBtn1El.textContent =quizList[currentQuestionIndex].answers[0].text;
+    answerBtn1El.textContent = quizList[currentQuestionIndex].answers[0].text;
     answerBtn1El.value = quizList[currentQuestionIndex].answers[0].correct;
+    //Set Answer 1 text and value for the button 
+    answerBtn2El.textContent = quizList[currentQuestionIndex].answers[1].text;
+    answerBtn2El.value = quizList[currentQuestionIndex].answers[1].correct;
+
+    //Set Answer 1 text and value for the button 
+    answerBtn3El.textContent = quizList[currentQuestionIndex].answers[2].text;
+    answerBtn3El.value = quizList[currentQuestionIndex].answers[2].correct;
+
+    //Set Answer 1 text and value for the button 
+    answerBtn4El.textContent = quizList[currentQuestionIndex].answers[3].text;
+    answerBtn4El.value = quizList[currentQuestionIndex].answers[3].correct;
 
 
 }  
 //function for selecting the right answer
 function selectAnswer () {
+    
     console.log ("selectingAnswers is clicked", this.textContent , this.value );
+    //logic to compare ans right/wrong 
+    //comparision condition
+// if( ){
+//     // increse the score 
+//     //alert keep going 
+// }else { 
+//     //deduct time fro mthe clock varaible 
+//     //alert wrong ans 
+// }
+    //move to the nextQuestion 
+    currentQuestionIndex++; 
+    console.log("moving on..........", currentQuestionIndex, "quiz list length", quizList.length);
+
+    //CHeck if its the last question 
+    if (currentQuestionIndex === quizList.length) {
+        alert ("Game Over!")
+        //make thesubmit score form visible submitScore
+
+        
+    }else {
+
+        //Display the next Question i{nstead of a for loop 
+        setNextQuestion()
+    }
+
 }
 
-
+function submitScore(){
+    //save the score in lOcal STorage 
+}
 
 //event Listener
 startButton.addEventListener('click', startQuiz) 
 answerBtn1El.addEventListener('click', selectAnswer)
+answerBtn2El.addEventListener('click', selectAnswer)
+answerBtn3El.addEventListener('click', selectAnswer)
+answerBtn4El.addEventListener('click', selectAnswer)
+document.getElementById("finalScore").addEventListener('click', submitScore)

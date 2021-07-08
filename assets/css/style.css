@@ -14,6 +14,16 @@ main {
   background: linear-gradient(0deg, rgb(52, 138, 134) 0%, rgb(237, 249, 246) 63%);
 }
 
+.header a {
+  display: flex;
+  float: left;
+}
+
+.header div {
+  display: flex;
+  float: right;
+}
+
 .container {
   width: 800px;
   max-width: 80%;
