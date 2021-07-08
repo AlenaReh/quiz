@@ -31,8 +31,12 @@ var answerBtn3El = document.getElementById("option-2");
 var answerBtn4El = document.getElementById("option-3");
 
 var score=0;
-var timer=60;
+
 var currentQuestionIndex=0;
+
+//timer variable
+var timerEl = document.getElementById("timer");
+var secondsLeft = 60;
 
 //Quiz array
 var quizList = [
@@ -78,15 +82,14 @@ var quizList = [
 ];
 
 
-
-
 //function to start the Game
 function startQuiz () {
     //console.log('Started')
-    startButton.classList.add('hide')
-    questionContainerEl.classList.remove('hide')
+    startButton.classList.add('hide');
+    questionContainerEl.classList.remove('hide');
+    
     //Start CLock
-
+    myTimer();
     //Display the next Question 
     setNextQuestion()
 }
@@ -124,26 +127,40 @@ function selectAnswer () {
 //     // increse the score 
 //     //alert keep going 
 // }else { 
-//     //deduct time fro mthe clock varaible 
+//     //deduct time from the clock varaible 
 //     //alert wrong ans 
 // }
     //move to the nextQuestion 
     currentQuestionIndex++; 
-    console.log("moving on..........", currentQuestionIndex, "quiz list length", quizList.length);
+    //console.log("moving on..........", currentQuestionIndex, "quiz list length", quizList.length);
 
     //CHeck if its the last question 
     if (currentQuestionIndex === quizList.length) {
         alert ("Game Over!")
-        //make thesubmit score form visible submitScore
+        //make the submit score form visible submitScore
 
-        
-    }else {
+    } else {
 
-        //Display the next Question i{nstead of a for loop 
+        //Display the next Question instead of a for loop 
         setNextQuestion()
     }
 
 }
+
+//Timer
+function myTimer() {
+    var timerInterval = setInterval(function(){
+        secondsLeft--;
+        timerEl.textContent = "Time: " + secondsLeft;
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            alert ("Gane Over!")
+
+        }
+    }, 1000);
+}
+        
+
 
 function submitScore(){
     //save the score in lOcal STorage 
