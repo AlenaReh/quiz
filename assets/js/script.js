@@ -25,7 +25,10 @@ var finalScore = document.querySelector("#finalScore");
 var startButton = document.querySelector("#start-button");
 var questionContainerEl = document.getElementById("question-container");
 var questionEl = document.getElementById("question");
-var answerButtonsEl = document.getElementById("buttons");
+var answerBtn1El = document.getElementById("option-0");
+var answerBtn2El = document.getElementById("option-1");
+var answerBtn3El = document.getElementById("option-2");
+var answerBtn4El = document.getElementById("option-3");
 
 var score=0;
 var timer=60;
@@ -75,8 +78,7 @@ var quizList = [
 ];
 
 
-//event Listener
-startButton.addEventListener('click', startQuiz) 
+
 
 //function to start the Game
 function startQuiz () {
@@ -91,10 +93,22 @@ function startQuiz () {
 
 //function for setting the next question
 function setNextQuestion () {
+    console.log(quizList[currentQuestionIndex]);
+    //Display Question 
+    questionEl.textContent =quizList[currentQuestionIndex].question;
+    //Set Answer 1 text and value for the button 
+    answerBtn1El.textContent =quizList[currentQuestionIndex].answers[0].text;
+    answerBtn1El.value = quizList[currentQuestionIndex].answers[0].correct;
+
 
 }  
 //function for selecting the right answer
 function selectAnswer () {
-
+    console.log ("selectingAnswers is clicked", this.textContent , this.value );
 }
 
+
+
+//event Listener
+startButton.addEventListener('click', startQuiz) 
+answerBtn1El.addEventListener('click', selectAnswer)
