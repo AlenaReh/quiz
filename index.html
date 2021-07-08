@@ -14,13 +14,36 @@
             </div>
         </div>
         <h1> Welcome to Gen Psych Quiz!</h1>
-            <p>Good Luck =)</p>
-    
     </header>
 
     <main>
-        <button class="start-button">Start</button>
-      
+      <!--Starting page-->
+      <div class = "container">
+        <div id = "question-container" class="hide"> 
+          <div id="question">Question</div>
+            <div id="answer-buttons" class="button-grid">
+              <button class ="button" id="option-0" onclick="handleClick(0)">A</button><br>
+              <button class ="button" id="option-1" onclick="handleClick(1)">B</button><br>
+              <button class ="button" id="option-2" onclick="handleClick(2)">C</button><br>
+              <button class ="button" id="option-3" onclick="handleClick(3)">D</button><br>  
+            </div>
+          </div>
+        <p>Good Luck =)</p>
+        <div class="controls"> 
+        <button id="start-button" class="start-button button">Start</button>
+    </div>
+  </div>
+
+  <!--Quiz page-->
+
+    <!--Type in your Highscore-->
+    <form>
+      <label for="name">What is your name?</label><br>
+      <input type="text" id="name" name="name"><br>
+      <button type="submit"><a href="" id="finalScore">Your Score</a></button>
+    </form>
+
+
     </main>
     <script src="assets/js/script.js"></script>
   </body>

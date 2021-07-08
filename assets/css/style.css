@@ -1,33 +1,56 @@
 * {
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-  font-family: Arial;
+main {
   margin: 0;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(0deg, rgb(52, 138, 134) 0%, rgb(237, 249, 246) 63%);
 }
 
+.container {
+  width: 800px;
+  max-width: 80%;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+  text-align: center;
+  justify-content: center;
+}
 
-button {
-  background: radial-gradient(circle, rgba(240,230,140,1) 0%, rgba(197, 117, 235, 0.954) 100%);
+.button {
+  background: radial-gradient(circle, rgb(235, 243, 127) 0%, rgba(197, 117, 235, 0.954) 100%);
   border-radius: 8px;
   color: #14524f;
   cursor: pointer;
   font-size: 18px;
-  letter-spacing: 0.21px;
-  line-height: 16px;
-  max-width: 255px;
   padding: 20px 52px;
   text-align: center;
-  transition-duration: 0.15s;
-  transition-property: background-color;
-  transition-timing-function: linear;
+  justify-content: center;
   margin-top: 0.6em;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+.start-button {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+button:hover {
+  border-color: black;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
@@ -38,8 +61,7 @@ header {
   border-bottom:30px rgba(197, 117, 235, 0.954);
 }
 
-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.hide {
+  display: none;
 }
+
