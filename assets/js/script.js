@@ -22,6 +22,8 @@ THEN I can save my initials and my score
 //my variables
 
 var finalScore = document.querySelector("#finalScore");
+var userInitials = document.querySelector("#initials");
+var submitScoreButton = document.querySelector("#submitScore");
 var startButton = document.querySelector("#start-button");
 var questionContainerEl = document.getElementById("question-container");
 var questionEl = document.getElementById("question");
@@ -29,6 +31,7 @@ var answerBtn1El = document.getElementById("option-0");
 var answerBtn2El = document.getElementById("option-1");
 var answerBtn3El = document.getElementById("option-2");
 var answerBtn4El = document.getElementById("option-3");
+
 
 var score=0;
 
@@ -84,7 +87,6 @@ var quizList = [
 
 //function to start the Game
 function startQuiz () {
-    //console.log('Started')
     startButton.classList.add('hide');
     questionContainerEl.classList.remove('hide');
     
@@ -96,22 +98,22 @@ function startQuiz () {
 
 //function for setting the next question
 function setNextQuestion () {
-    console.log("currentQuestionIndex", currentQuestionIndex);
-    console.log(quizList[currentQuestionIndex]);
+    //console.log("currentQuestionIndex", currentQuestionIndex);
+    //console.log(quizList[currentQuestionIndex]);
     //Display Question 
     questionEl.textContent = quizList[currentQuestionIndex].question;
     //Set Answer 1 text and value for the button 
     answerBtn1El.textContent = quizList[currentQuestionIndex].answers[0].text;
     answerBtn1El.value = quizList[currentQuestionIndex].answers[0].correct;
-    //Set Answer 1 text and value for the button 
+    //Set Answer 2 text and value for the button 
     answerBtn2El.textContent = quizList[currentQuestionIndex].answers[1].text;
     answerBtn2El.value = quizList[currentQuestionIndex].answers[1].correct;
 
-    //Set Answer 1 text and value for the button 
+    //Set Answer 3 text and value for the button 
     answerBtn3El.textContent = quizList[currentQuestionIndex].answers[2].text;
     answerBtn3El.value = quizList[currentQuestionIndex].answers[2].correct;
 
-    //Set Answer 1 text and value for the button 
+    //Set Answer 4 text and value for the button 
     answerBtn4El.textContent = quizList[currentQuestionIndex].answers[3].text;
     answerBtn4El.value = quizList[currentQuestionIndex].answers[3].correct;
 
@@ -120,25 +122,29 @@ function setNextQuestion () {
 //function for selecting the right answer
 function selectAnswer () {
     
-    console.log ("selectingAnswers is clicked", this.textContent , this.value );
+    //console.log ("selectingAnswers is clicked", this.textContent , this.value );
     //logic to compare ans right/wrong 
     //comparision condition
-// if( ){
+    if(this.textContent === this.value){
+        Console.log("correct")
 //     // increse the score 
 //     //alert keep going 
-// }else { 
-//     //deduct time from the clock varaible 
-//     //alert wrong ans 
-// }
+        alert ("Keep going!")
+    }else { 
+         //deduct time from the clock varaible 
+        secondsLeft = secondsLeft - 5;
+//     //alert wrong answer
+        alert ("Wrong answer!");
+    }
     //move to the nextQuestion 
     currentQuestionIndex++; 
     //console.log("moving on..........", currentQuestionIndex, "quiz list length", quizList.length);
 
-    //CHeck if its the last question 
+    //Check if it's the last question 
     if (currentQuestionIndex === quizList.length) {
         alert ("Game Over!")
         //make the submit score form visible submitScore
-
+        submitScore ()
     } else {
 
         //Display the next Question instead of a for loop 
@@ -163,11 +169,40 @@ function myTimer() {
 
 
 function submitScore(){
-    //save the score in lOcal STorage 
-}
+    //save the score in local Storage 
+    var initials = localStorage.getItem("initials");
+    var finalScore = localStorage.getItem("finalScore");
+    if (!initials || !finalScore) {
+        return;
+      }
+    
+      userInitials.textContent = initials;
+      userScore.textContent = finalScore;
+    }
+    
+    submitScoreButton.addEventListener("click", function(event) {
+      event.preventDefault();
+    
+      var initials = document.querySelector("#initials").value;
+      var finalScore = document.querySelector("#finalScore").value;
+    
+      if (initials === "") {
+        displayMessage("error", "Initials cannot be blank");
+      } else if (password === "") {
+        displayMessage("error", "Final Score cannot be blank");
+      } else {
+        displayMessage("success", "Final Score Submeted");
+    
+        localStorage.setItem("initials", initials);
+        localStorage.setItem("finalScore", finalScore);
+        submitScore();
+      }
+    });
+
 
 //event Listener
 startButton.addEventListener('click', startQuiz) 
+
 answerBtn1El.addEventListener('click', selectAnswer)
 answerBtn2El.addEventListener('click', selectAnswer)
 answerBtn3El.addEventListener('click', selectAnswer)
