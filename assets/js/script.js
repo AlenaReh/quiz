@@ -32,10 +32,13 @@ var answerBtn2El = document.getElementById("option-1");
 var answerBtn3El = document.getElementById("option-2");
 var answerBtn4El = document.getElementById("option-3");
 
+
 var score=0;
 var finalScore = [];
 
 var currentQuestionIndex=0;
+
+var userInitials = document.querySelector("#initials");
 
 //timer variable
 var timerEl = document.getElementById("timer");
@@ -115,18 +118,18 @@ function setNextQuestion () {
 }  
 //function for selecting the right answer
 function selectAnswer () {
-    console.log ("selectingAnswers is clicked", this.textContent , this.value );
+    //console.log ("selectingAnswers is clicked", this.textContent , this.value );
     //logic to compare right/wrong answers
     //comparision condition
     if(this.value === "true"){
         //increase the score
-        function score ()
+        score = score + 5;
 
 
 //     //alert keep going 
         alert ("Keep going!")
     }else { 
-         //deduct time from the clock varaible 
+        //deduct time from the clock varaible 
         secondsLeft = secondsLeft - 5;
 //     //alert wrong answer
         alert ("Wrong answer!");
@@ -155,13 +158,12 @@ function myTimer() {
         timerEl.textContent = "Time: " + secondsLeft;
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-            alert ("Gane Over!")
+            alert ("Game Over!")
 
         }
     }, 1000);
 }
         
-
 
 function submitScore(){
     //save the score in local Storage 
@@ -172,21 +174,21 @@ function submitScore(){
       }
     
       userInitials.textContent = initials;
-      userScore.textContent = finalScore;
+      finalScore.textContent = finalScore;
     }
     
     submitScoreButton.addEventListener("click", function(event) {
       event.preventDefault();
     
-      var initials = document.querySelector("#initials").value;
-      var finalScore = document.querySelector("#finalScore").value;
+      initials = document.querySelector("#initials").value;
+      finalScore = document.querySelector("#finalScore").value;
     
       if (initials === "") {
-        displayMessage("error", "Initials cannot be blank");
-      } else if (password === "") {
-        displayMessage("error", "Final Score cannot be blank");
+        //alert ("Initials cannot be blank");???
+      } else if (finalScore === "") {
+        //alert ("Final Score cannot be blank");
       } else {
-        displayMessage("success", "Final Score Submeted");
+       // alert ("success", "Final Score Submeted");
     
         localStorage.setItem("initials", initials);
         localStorage.setItem("finalScore", finalScore);
