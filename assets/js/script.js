@@ -32,8 +32,8 @@ var answerBtn2El = document.getElementById("option-1");
 var answerBtn3El = document.getElementById("option-2");
 var answerBtn4El = document.getElementById("option-3");
 
-
 var score=0;
+var finalScore = [];
 
 var currentQuestionIndex=0;
 
@@ -84,12 +84,10 @@ var quizList = [
         }
 ];
 
-
 //function to start the Game
 function startQuiz () {
     startButton.classList.add('hide');
     questionContainerEl.classList.remove('hide');
-    
     //Start CLock
     myTimer();
     //Display the next Question 
@@ -108,26 +106,23 @@ function setNextQuestion () {
     //Set Answer 2 text and value for the button 
     answerBtn2El.textContent = quizList[currentQuestionIndex].answers[1].text;
     answerBtn2El.value = quizList[currentQuestionIndex].answers[1].correct;
-
     //Set Answer 3 text and value for the button 
     answerBtn3El.textContent = quizList[currentQuestionIndex].answers[2].text;
     answerBtn3El.value = quizList[currentQuestionIndex].answers[2].correct;
-
     //Set Answer 4 text and value for the button 
     answerBtn4El.textContent = quizList[currentQuestionIndex].answers[3].text;
     answerBtn4El.value = quizList[currentQuestionIndex].answers[3].correct;
-
-
 }  
 //function for selecting the right answer
 function selectAnswer () {
-    
-    //console.log ("selectingAnswers is clicked", this.textContent , this.value );
-    //logic to compare ans right/wrong 
+    console.log ("selectingAnswers is clicked", this.textContent , this.value );
+    //logic to compare right/wrong answers
     //comparision condition
-    if(this.textContent === this.value){
-        Console.log("correct")
-//     // increse the score 
+    if(this.value === "true"){
+        //increase the score
+        function score ()
+
+
 //     //alert keep going 
         alert ("Keep going!")
     }else { 
