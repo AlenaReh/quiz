@@ -20,10 +20,8 @@ THEN I can save my initials and my score
 */
 
 //my variables
-
-var finalScore = document.querySelector("#finalScore");
 var userInitials = document.querySelector("#initials");
-var submitScoreButton = document.querySelector("#submitScore");
+var submitScore = document.querySelector("#submitScore");
 var startButton = document.querySelector("#start-button");
 var questionContainerEl = document.getElementById("question-container");
 var questionEl = document.getElementById("question");
@@ -31,6 +29,7 @@ var answerBtn1El = document.getElementById("option-0");
 var answerBtn2El = document.getElementById("option-1");
 var answerBtn3El = document.getElementById("option-2");
 var answerBtn4El = document.getElementById("option-3");
+
 
 
 var score=0;
@@ -57,9 +56,9 @@ var quizList = [
     {   question: "What phenomenon of developmental psychology occurs when a child (usually around 9 months) no longer ascribes to an 'out of sight, out of mind' view of the world?",
         answers: [
             { text: "Object permanence", correct: true },
-            { text:"Symbolic representation", correct: false},
-            { text:"Scaffolding", correct: false},
-            { text:"Egocentric thinking", correct: false},],
+            { text: "Symbolic representation", correct: false},
+            { text: "Scaffolding", correct: false},
+            { text: "Egocentric thinking", correct: false},],
         },
 
     {   question: "Asch's famous line experiment dealt with what central social psychological phenomenon?",
@@ -82,7 +81,7 @@ var quizList = [
         answers: [
             { text: "Dendrite", correct: true },
             { text: "Axon", correct: false},
-            { text:  "Nucleus", correct: false},
+            { text: "Nucleus", correct: false},
             { text: "Synapse", correct: false},],
         }
 ];
@@ -115,40 +114,36 @@ function setNextQuestion () {
     //Set Answer 4 text and value for the button 
     answerBtn4El.textContent = quizList[currentQuestionIndex].answers[3].text;
     answerBtn4El.value = quizList[currentQuestionIndex].answers[3].correct;
-}  
+} 
+
 //function for selecting the right answer
 function selectAnswer () {
-    //console.log ("selectingAnswers is clicked", this.textContent , this.value );
     //logic to compare right/wrong answers
-    //comparision condition
     if(this.value === "true"){
         //increase the score
         score = score + 5;
-
-
-//     //alert keep going 
+   //alert keep going 
         alert ("Keep going!")
     }else { 
         //deduct time from the clock varaible 
         secondsLeft = secondsLeft - 5;
-//     //alert wrong answer
+    //alert wrong answer
         alert ("Wrong answer!");
     }
-    //move to the nextQuestion 
-    currentQuestionIndex++; 
-    //console.log("moving on..........", currentQuestionIndex, "quiz list length", quizList.length);
-
+        //move to the nextQuestion 
+        currentQuestionIndex++; 
     //Check if it's the last question 
     if (currentQuestionIndex === quizList.length) {
-        alert ("Game Over!")
-        //make the submit score form visible submitScore
-        submitScore ()
+        alert ("Your final score is " + score + " points");
+        submitScore ();
     } else {
-
         //Display the next Question instead of a for loop 
         setNextQuestion()
     }
-
+}
+//Sumbiting your score ????
+function submitScore (){
+    submitScore.setAttribute("style", "visibility: visible");
 }
 
 //Timer
@@ -164,7 +159,6 @@ function myTimer() {
     }, 1000);
 }
         
-
 function submitScore(){
     //save the score in local Storage 
     var initials = localStorage.getItem("initials");
@@ -177,7 +171,7 @@ function submitScore(){
       finalScore.textContent = finalScore;
     }
     
-    submitScoreButton.addEventListener("click", function(event) {
+    submitScore.addEventListener("click", function(event) {
       event.preventDefault();
     
       initials = document.querySelector("#initials").value;
