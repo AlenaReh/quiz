@@ -1,23 +1,9 @@
-/*
-Acceptancve Criteria
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
-
-1. Make an array with quiz questions with answers
-2. Create a view Highscores page
-3. Add an event listener
-4. create score variable
-5. Set the timer
-*/
+//Reset Score 
+//stop the timer
+//scores.html
+//reset button
+//hide pTag
+//hode the container completely when recording your score
 
 //my variables
 var userInitials = document.querySelector("#initials");
@@ -30,16 +16,12 @@ var answerBtn2El = document.getElementById("option-1");
 var answerBtn3El = document.getElementById("option-2");
 var answerBtn4El = document.getElementById("option-3");
 
-
-
 var score=0;
 var finalScore = [];
+var storedWins = [];
 
 var currentQuestionIndex=0;
-
 var userInitials = document.querySelector("#initials");
-
-//timer variable
 var timerEl = document.getElementById("timer");
 var secondsLeft = 60;
 
@@ -121,10 +103,10 @@ function selectAnswer () {
     //logic to compare right/wrong answers
     if(this.value === "true"){
         //increase the score
-        score = score + 5;
-   //alert keep going 
+        score = secondsLeft;
+        //alert keep going 
         alert ("Keep going!")
-    }else { 
+    } else { 
         //deduct time from the clock varaible 
         secondsLeft = secondsLeft - 5;
     //alert wrong answer
@@ -135,16 +117,36 @@ function selectAnswer () {
     //Check if it's the last question 
     if (currentQuestionIndex === quizList.length) {
         alert ("Your final score is " + score + " points");
-        submitScore ();
+        questionContainerEl.classList.add('hide');
+        startButton.classList.add('hide');
+        submitScore.classList.remove('hide');
     } else {
         //Display the next Question instead of a for loop 
         setNextQuestion()
     }
 }
+
+
+// Updates your score on the screen and sets win count to client storage
+//function submitScore() {
+  //  submitScore.setAttribute("style", "visibility: visible");
+  //  score.textContent = scoreCounter;
+  //  localStorage.setItem("scoreCounter", scoreCounter);
+ // }
+
+// Get stored value from client storage, if it exists
+//var storedScore = localStorage.getItem("scoreCounter");
+  //finalScore = storedWins;
+
+//Render win count to page
+//score.textContent = finalScore;
+
 //Sumbiting your score ????
-function submitScore (){
-    submitScore.setAttribute("style", "visibility: visible");
-}
+//function submitScore (){
+   // submitScore.setAttribute("style", "visibility: visible");
+//}
+
+//function that would hide the quiz and stop the timer
 
 //Timer
 function myTimer() {
@@ -154,11 +156,10 @@ function myTimer() {
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
             alert ("Game Over!")
-
         }
     }, 1000);
 }
-        
+
 function submitScore(){
     //save the score in local Storage 
     var initials = localStorage.getItem("initials");
@@ -186,14 +187,15 @@ function submitScore(){
     
         localStorage.setItem("initials", initials);
         localStorage.setItem("finalScore", finalScore);
-        submitScore();
+        submitScore.classList.remove('hide');
       }
     });
 
+// Bonus: Add reset button
+var resetButton = document.querySelector(".reset-button");
 
 //event Listener
 startButton.addEventListener('click', startQuiz) 
-
 answerBtn1El.addEventListener('click', selectAnswer)
 answerBtn2El.addEventListener('click', selectAnswer)
 answerBtn3El.addEventListener('click', selectAnswer)

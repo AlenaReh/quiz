@@ -24,9 +24,16 @@ main {
   float: right;
 }
 
+p {
+  text-align: center;
+  justify-content: center;
+  font-size: 18px;
+
+}
 .container {
   width: 800px;
   max-width: 80%;
+  max-height: auto;
   background-color: whitesmoke;
   border-radius: 5px;
   padding: 10px;
@@ -75,4 +82,10 @@ header {
   display: none;
 }
 
+.reset-button {
+  font-size: 16px;
+  height: 30px;
+  line-height: 8px;
+  margin-top: 20px;
+}
 
