@@ -1,15 +1,15 @@
 //Reset Score 
 //stop the timer
 //scores.html
-//reset button
-//hide pTag
-//hode the container completely when recording your score
+//shuffle the right answers
 
 //my variables
 var userInitials = document.querySelector("#initials");
 var submitScore = document.querySelector("#submitScore");
 var startButton = document.querySelector("#start-button");
 var questionContainerEl = document.getElementById("question-container");
+var instructions = document.getElementById("instructions");
+var cardEl = document.querySelector(".container")
 var questionEl = document.getElementById("question");
 var answerBtn1El = document.getElementById("option-0");
 var answerBtn2El = document.getElementById("option-1");
@@ -80,6 +80,7 @@ function startQuiz () {
 
 //function for setting the next question
 function setNextQuestion () {
+    instructions.classList.add('hide');
     //console.log("currentQuestionIndex", currentQuestionIndex);
     //console.log(quizList[currentQuestionIndex]);
     //Display Question 
@@ -117,7 +118,8 @@ function selectAnswer () {
     //Check if it's the last question 
     if (currentQuestionIndex === quizList.length) {
         alert ("Your final score is " + score + " points");
-        questionContainerEl.classList.add('hide');
+
+        cardEl.classList.add('hide');
         startButton.classList.add('hide');
         submitScore.classList.remove('hide');
     } else {
@@ -125,7 +127,6 @@ function selectAnswer () {
         setNextQuestion()
     }
 }
-
 
 // Updates your score on the screen and sets win count to client storage
 //function submitScore() {
