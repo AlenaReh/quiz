@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gen Psych Quiz</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
   </head>
-<body>
+  <body>
     <header>
-        <div class="header"> 
-        <h1> View Highscores!</h1>
-    </div>
+      <div class="header">
+        <h1>View Highscores!</h1>
+      </div>
     </header>
 
     <div class="container">
-    <ul>
-        <li> Player 1 </li>
-        <li> Player 2 </li>
-        <li> Player 3 </li>
-        <li> Player 4 </li>
-        <li> Player 5 </li>
-    </ul>
-        <!--Back/Reset buttons-->
-        <button class="button scoreBtns"><a href="index.html">Back</a></button>
-        <button class="button scoreBtns">Reset Scores</button>
+      <ol>
+        <li>
+          <div id="initials"></div>
+          <div id="finalScore"></div>
+        </li>
+      </ol>
 
-    </div>  
-   
+      <!--Back/Reset buttons-->
+      <button class="button scoreBtns"><a href="index.html">Back</a></button>
+      <button class="button scoreBtns">Reset Scores</button>
+    </div>
+
+    <script>
+      document.getElementById("initials").innerHTML=localStorage.getItem("initials");
+      document.getElementById("finalScore").innerHTML=localStorage.getItem("finalScore");
+    </script>
+
     <script src="./assets/js/script.js"></script>
-</body>
+  </body>
 </html>
-
-
-    
-    

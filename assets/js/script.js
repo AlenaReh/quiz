@@ -1,7 +1,9 @@
 //Reset Score 
 //stop the timer
 //scores.html
-//shuffle the right answers
+//style score input
+//Game Over?
+//change alert style
 
 //my variables
 var userInitials = document.querySelector("#initials");
@@ -29,31 +31,32 @@ var secondsLeft = 60;
 var quizList = [
     {   question: "What research team was influential in their study of human sexual behavior and response?",
         answers: [
-            { text: "Masters and Johnson", correct: true },
-            { text: "Crockett and Tubbs", correct: false},
-            { text: "Gilbert and Sullivan", correct: false},
-            { text: "Proctor and Gamble", correct: false}],
+            {text: "Gilbert and Sullivan", correct: false},
+            {text: "Crockett and Tubbs", correct: false},
+            {text: "Masters and Johnson", correct: true},
+            {text: "Proctor and Gamble", correct: false}],
+            
         },
 
     {   question: "What phenomenon of developmental psychology occurs when a child (usually around 9 months) no longer ascribes to an 'out of sight, out of mind' view of the world?",
         answers: [
-            { text: "Object permanence", correct: true },
-            { text: "Symbolic representation", correct: false},
-            { text: "Scaffolding", correct: false},
-            { text: "Egocentric thinking", correct: false},],
+            {text: "Object permanence", correct: true },
+            {text: "Symbolic representation", correct: false},
+            {text: "Scaffolding", correct: false},
+            {text: "Egocentric thinking", correct: false},],
         },
 
     {   question: "Asch's famous line experiment dealt with what central social psychological phenomenon?",
         answers: [
-            { text: "Conformity", correct: true },
-            { text: "Prejudice", correct: false},
-            { text: "Authority", correct: false},
-            { text: "Physical attractiveness", correct: false},],
+            {text: "Prejudice", correct: false},
+            {text: "Conformity", correct: true},
+            {text: "Authority", correct: false},
+            {text: "Physical attractiveness", correct: false},],
         },
 
     {   question: "Which of the following is NOT considered one of the basic tastes - those given specific names?",
         answers: [
-            { text: "Acerbic", correct: true },
+            { text: "Acerbic", correct: true},
             { text: "Bitter", correct: false},
             { text: "Sweet", correct: false},
             { text: "Sour", correct: false},],
@@ -61,10 +64,10 @@ var quizList = [
 
     {   question: "Which part of a neuron, whose name comes from the Greek for 'tree', extends from the cell body like a tree branch and receives stimuli from other neurons in the brain?",
         answers: [
-            { text: "Dendrite", correct: true },
-            { text: "Axon", correct: false},
-            { text: "Nucleus", correct: false},
-            { text: "Synapse", correct: false},],
+            {text: "Synapse", correct: false},
+            {text: "Axon", correct: false},
+            {text: "Nucleus", correct: false},
+            {text: "Dendrite", correct: true},],
         }
 ];
 
@@ -163,12 +166,9 @@ function myTimer() {
 
 function submitScore(){
     //save the score in local Storage 
-    var initials = localStorage.getItem("initials");
-    var finalScore = localStorage.getItem("finalScore");
     if (!initials || !finalScore) {
         return;
       }
-    
       userInitials.textContent = initials;
       finalScore.textContent = finalScore;
     }
@@ -176,8 +176,8 @@ function submitScore(){
     submitScore.addEventListener("click", function(event) {
       event.preventDefault();
     
-      initials = document.querySelector("#initials").value;
-      finalScore = document.querySelector("#finalScore").value;
+      //initials = document.querySelector("#initials").value;
+      //finalScore = document.querySelector("#finalScore").value;
     
       if (initials === "") {
         //alert ("Initials cannot be blank");???
