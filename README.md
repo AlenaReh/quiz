@@ -1,16 +1,15 @@
 # Quiz
 
-​
+
 ## Description 
-​At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment—perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges.
+This is a General Psychology Quiz. It consist of five multiple-choice questions.
+​
+This app will runs in the browser and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean, polished, and responsive user interface.
 
-To help familiarize you with these tests and allow you to use the skills covered in this unit, this week’s homework invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface.
-
-This week’s coursework will equip you with all the skills you need to succeed in this assignment.
 
 ## Demo
 
-![demo](assets/images/demo)
+![demo](assets/images/quiz.demo.png)
 
 This application can be found here:
 * https://alenareh.github.io/quiz/

@@ -182,7 +182,7 @@ function savePlayerScore() {
     localStorage.setItem("highScoreList", JSON.stringify(previousScoreList));
     submitScore.classList.remove("hide");
     alert("Great! You have submited your score", "Final Score Submeted");
-    //Redirect to next Page
+    //Redirect to the next Page
     window.location.href = "scores.html";
   }
 }
