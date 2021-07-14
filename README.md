@@ -3,9 +3,10 @@
 
 ## Description 
 This is a General Psychology Quiz. It consist of five multiple-choice questions.
-​
-This app will runs in the browser and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean, polished, and responsive user interface.
 
+This app runs in the browser and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean, polished, and responsive user interface.
+
+The user can expect instructions on the home page of the application. After the game is over, the app allows you to save your score along with initials.
 
 ## Demo
 
