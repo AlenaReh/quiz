@@ -31,7 +31,7 @@ p {
 }
 
 .container {
-  width: 900px;
+  width: 800px;
   max-width: 80%;
   max-height: auto;
   background-color: whitesmoke;
@@ -87,6 +87,7 @@ header {
   color: #fff;
   border-bottom:30px rgba(197, 117, 235, 0.954);
 }
+
 div ol li {
   float: left; 
   padding: 3px;
