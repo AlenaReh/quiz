@@ -43,31 +43,25 @@ p {
 }
 
 .button {
+  display: flex;
+  flex: wrap;
   background: radial-gradient(circle, rgb(235, 243, 127) 0%, rgba(197, 117, 235, 0.954) 100%);
   border-radius: 8px;
   color: #14524f;
   cursor: pointer;
-  font-size: 18px;
+  width: 260px;
+  font-size: 16px;
   padding: 20px 52px;
   text-align: center;
   justify-content: center;
   margin-top: 0.6em;
   display: grid;
   grid-template-columns: repeat(2, auto);
-}
+  }
 
 .start-button {
   font-size: 1.5rem;
   font-weight: bold;
-}
-
-.scoreBtns {
-  display: inline;
-  font-size: 16px;
-  height: 30px;
-  line-height: 12px;
-  margin-top: 20px;
-  margin-inline: 60px;
 }
 
 button:hover {
@@ -88,8 +82,8 @@ header {
   border-bottom:30px rgba(197, 117, 235, 0.954);
 }
 
-div ol li {
-  float: left; 
+ol li {
+  text-align: start;
   padding: 3px;
   margin-bottom: 5px;
 }

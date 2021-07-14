@@ -1,5 +1,4 @@
-//Reset Score
-//stop the timer
+//sort the scores from high to low
 //style score input
 //Game Over?
 //change alert style
@@ -84,6 +83,7 @@ var quizList = [
     ],
   },
 ];
+var previousScoreList = JSON.parse(localStorage.getItem("highScoreList")) || [];
 
 //function to start the Game
 function startQuiz() {
@@ -167,16 +167,7 @@ function myTimer() {
 function savePlayerScore() {
   initials = document.querySelector("#initials").value;
   finalScore = document.querySelector("#finalScore").textContent;
-  //userInitials.textContent = initials;
-  // finalScore.textContent = finalScore;
-
-  //for loop?
-
-  //if (!initials || !finalScore) {
-  //  return;
-  //}
-  var previousScoreList =
-    JSON.parse(localStorage.getItem("highScoreList")) || [];
+  
   if (initials === "") {
     alert("Initials cannot be blank");
   } else if (finalScore === "") {
@@ -184,12 +175,13 @@ function savePlayerScore() {
   } else {
     var playerScore = {
       initials: initials,
-      score: finalScore,
+      finalScore: finalScore,
     };
     console.log("playerScore", playerScore);
     //Apend new Score to the exisiting List
     previousScoreList.push(playerScore);
     //save the score in local Storage
+
     localStorage.setItem("highScoreList", JSON.stringify(previousScoreList));
     submitScore.classList.remove("hide");
     alert("success", "Final Score Submeted");
@@ -200,11 +192,7 @@ function savePlayerScore() {
 
 //loop through array and display the highscores
 
-// Bonus: Add reset button
-//var resetButton = document.querySelector(".reset-button");
-//Clear all existing scores from local storage
-//clearHighScores = function () {
-//  localStorage.clear();
+
 //  score.innerHTML = "";
 // };
 
@@ -215,3 +203,5 @@ answerBtn2El.addEventListener("click", selectAnswer);
 answerBtn3El.addEventListener("click", selectAnswer);
 answerBtn4El.addEventListener("click", selectAnswer);
 submitButton.addEventListener("click", savePlayerScore);
+
+
