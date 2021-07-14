@@ -98,8 +98,6 @@ function startQuiz() {
 //function for setting the next question
 function setNextQuestion() {
   instructions.classList.add("hide");
-  //console.log("currentQuestionIndex", currentQuestionIndex);
-  //console.log(quizList[currentQuestionIndex]);
   //Display Question
   questionEl.textContent = quizList[currentQuestionIndex].question;
   //Set Answer 1 text and value for the button
@@ -123,12 +121,12 @@ function selectAnswer() {
     //increase the score
     score = secondsLeft;
     //alert keep going
-    alert("Keep going!");
+    alert("You got it!");
   } else {
     //deduct time from the clock varaible
     secondsLeft = secondsLeft - 5;
     //alert wrong answer ----change alerts
-    alert("Wrong answer!");
+    alert("Ooops... wrong answer");
   }
   //move to the nextQuestion
   currentQuestionIndex++;
@@ -148,7 +146,7 @@ function selectAnswer() {
     setNextQuestion();
   }
 }
-//function that would hide the quiz and stop the timer
+
 //Timer
 function myTimer() {
   secondsLeft--;
@@ -157,7 +155,6 @@ function myTimer() {
     clearInterval(timerInterval);
     confirm("You're time is over! Another try?");
     if (r == true) {
-      //startQuiz;????
     } else {
       txt = "Good Bye!";
     }
@@ -167,7 +164,7 @@ function myTimer() {
 function savePlayerScore() {
   initials = document.querySelector("#initials").value;
   finalScore = document.querySelector("#finalScore").textContent;
-  
+
   if (initials === "") {
     alert("Initials cannot be blank");
   } else if (finalScore === "") {
@@ -184,24 +181,16 @@ function savePlayerScore() {
 
     localStorage.setItem("highScoreList", JSON.stringify(previousScoreList));
     submitScore.classList.remove("hide");
-    alert("success", "Final Score Submeted");
+    alert("Great! You have submited your score", "Final Score Submeted");
     //Redirect to next Page
     window.location.href = "scores.html";
   }
 }
 
-//loop through array and display the highscores
-
-
-//  score.innerHTML = "";
-// };
-
-//event Listener
+//event Listeners
 startButton.addEventListener("click", startQuiz);
 answerBtn1El.addEventListener("click", selectAnswer);
 answerBtn2El.addEventListener("click", selectAnswer);
 answerBtn3El.addEventListener("click", selectAnswer);
 answerBtn4El.addEventListener("click", selectAnswer);
 submitButton.addEventListener("click", savePlayerScore);
-
-

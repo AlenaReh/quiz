@@ -1,4 +1,3 @@
-
 var previousScoreList = JSON.parse(localStorage.getItem("highScoreList")) || [];
 var resetButton = document.querySelector(".reset-button");
 //var highScoreList = document.getElementById("playerScoreList");
@@ -8,19 +7,17 @@ for (i = 0; i < previousScoreList.length; i++) {
   console.log("eachPlayerScore", previousScoreList[i]);
   //create an li element
   var liEl = document.createElement("li");
-  //add text to  LI tag
+  //add text to  li tag
   liEl.textContent=previousScoreList[i].initials + " - " + previousScoreList[i].finalScore;
-  //append ele,ent to the OL list
+  //append element to the ol list
   var OlElement = document.getElementById("playerScorelist");
   OlElement.append(liEl);
 
 }
 
+resetButton.addEventListener("click", resetScores);
 //reset
 function resetScores () {
     localStorage.clear("previousScoreList");
-    console.log("reset");
-    //reload the page 
     location.reload;
 }
-resetButton.addEventListener("click", resetScores);
