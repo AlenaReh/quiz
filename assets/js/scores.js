@@ -19,5 +19,5 @@ resetButton.addEventListener("click", resetScores);
 //reset
 function resetScores () {
     localStorage.clear("previousScoreList");
-    location.reload;
+    location.reload();
 }
